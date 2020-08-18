@@ -9,9 +9,9 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
 public class LoginPage extends PageObject{
-	reusable objReusable = new reusable();
+	//reusable objReusable = new reusable();
 	
-	WebDriver driver = objReusable.newDriver();
+	WebDriver driver = null;
 	
 	@FindBy(name = "username")
 	protected WebElementFacade txtUsername;
@@ -39,14 +39,14 @@ public class LoginPage extends PageObject{
 	
 	public String getLoginCRMTitle()
 	{
-		String title = driver.getTitle();
+		String title = getDriver().getTitle();
 		
 		return title;
 	}
 	
 	public String getHomeTitle()
 	{
-		String title = driver.getTitle();
+		String title = getDriver().getTitle();
 		
 		return title;
 	}

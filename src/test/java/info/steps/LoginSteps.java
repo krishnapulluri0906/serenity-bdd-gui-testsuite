@@ -37,4 +37,10 @@ public class LoginSteps extends ScenarioSteps {
 		String title = objLoginPage.getHomeTitle();
 		assertEquals(title,expectedTitle);
 	}
+	
+	@Step
+	public void getUrl() {
+		
+		getDriver().get("https://www.freecrm.com/index.html");
+	}
 }
