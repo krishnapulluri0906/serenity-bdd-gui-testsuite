@@ -1,7 +1,7 @@
 @employeeService @runAllServices
 Feature: Free CRM application functional test cases
 
-@krishna
+@login
   Scenario Outline: Free CRM Login Test Scenario
     Given user is already on Login Page
     When title of login page is Free CRM
@@ -13,4 +13,4 @@ Feature: Free CRM application functional test cases
     Examples: 
       | username | password |
       | gedam.sonali@gmail.com  | Sonali@123 |
-     # | tom      | test456  |
+      | pulluri.kittu1@gmail.com  | Cts@2017 |
