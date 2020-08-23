@@ -1,4 +1,4 @@
-package info.stepDefinition;
+/*package info.stepDefinition;
 
 import org.openqa.selenium.WebDriver;
 
@@ -50,4 +50,4 @@ public class LoginStepDefinition {
 		driver.quit();
 	}
 
-}
+}*/

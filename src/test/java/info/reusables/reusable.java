@@ -5,25 +5,35 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import net.thucydides.core.webdriver.DriverSource;
 
 public class reusable  implements DriverSource{
 
-	WebDriver driver = null;
+	
 	@Override
 	public WebDriver newDriver() {
 		
 		String browserType = "";
+		WebDriver driver = null;
+		//System.out.println("Krishna path for driver" + System.getProperty("user.dir") + "/drivers/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "D:\\Tools\\chromedriver_win32_1\\chromedriver.exe");
+		//System.setProperty("webdriver.chrome.driver","driver path");
+		//ChromeOptions chrOptions = new ChromeOptions();
+		//chrOptions.setExperimentalOption("userAutomationExtension", false);
+		//System.setProperty("http.nonProxyHosts","0.0.0.0|localhost*|127.0.0.1|");
+		//driver = new ChromeDriver(chrOptions);
+		driver = new ChromeDriver();
 		
-		switch(browserType)
+		/*switch(browserType)
 		{
 		
 		case "chrome":
 			System.setProperty("webdriver.chrome.driver","driver path");
 			driver = new ChromeDriver();
-		}
-		return null;
+		}*/
+		return driver;
 	}
 
 	@Override

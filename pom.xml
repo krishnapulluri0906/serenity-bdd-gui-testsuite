@@ -123,9 +123,9 @@
 						<include>**/*RunnerSuite.java</include>
 						<include>**/When*.java</include>
 					</includes>
-					<systemPropertyVariables>
+					<!-- <systemPropertyVariables>
 						<webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
-					</systemPropertyVariables>
+					</systemPropertyVariables> -->
 					<!--<parallel>classes</parallel> <threadCount>${parallel.tests}</threadCount> 
 						<forkCount>${parallel.tests}</forkCount> -->
 				</configuration>
