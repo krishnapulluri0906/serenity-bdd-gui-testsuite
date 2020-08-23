@@ -1,5 +1,5 @@
 @employeeService @runAllServices
-Feature: Employee Service Endpoints
+Feature: Free CRM application functional test cases
 
 @krishna
   Scenario Outline: Free CRM Login Test Scenario
