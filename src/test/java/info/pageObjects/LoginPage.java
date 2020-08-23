@@ -13,14 +13,17 @@ public class LoginPage extends PageObject{
 	
 	WebDriver driver = null;
 	
-	@FindBy(name = "username")
+	@FindBy(xpath = "//input[@name='email']")
 	protected WebElementFacade txtUsername;
 	
-	@FindBy(name = "password")
+	@FindBy(xpath = "//input[@name='password']")
 	protected WebElementFacade txtPassword;
 	
-	@FindBy(xpath = "//input[@type='submit']")
+	@FindBy(xpath = "//div[text()='Login']")
 	protected WebElementFacade  btnSubmit;
+	
+	@FindBy(xpath="//a[text()='Log In']")
+	protected WebElementFacade btnLogin;
 	
 	public void clickOnSubmit()
 	{
@@ -34,7 +37,7 @@ public class LoginPage extends PageObject{
 	
 	public void enterPassword(String password)
 	{
-		txtUsername.sendKeys(password);
+		txtPassword.sendKeys(password);
 	}
 	
 	public String getLoginCRMTitle()
@@ -49,5 +52,10 @@ public class LoginPage extends PageObject{
 		String title = getDriver().getTitle();
 		
 		return title;
+	}
+	
+	public void clickLoginButton()
+	{
+		btnLogin.click();
 	}
 }

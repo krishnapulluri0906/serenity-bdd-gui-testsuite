@@ -16,16 +16,18 @@ public class LoginSteps extends ScenarioSteps {
 	public final static String Application_url_property_file = "globalSettings.properties";
 
 	@Step
-	public void enterLoginDetails(String userName, String password) {
+	public void enterLoginDetails(String userName, String password) throws InterruptedException {
 
 		objLoginPage.enterUserName(userName);
+		Thread.sleep(1000);
 		objLoginPage.enterPassword(password);
 	}
 
 	@Step
-	public void clickSubmitButton() {
+	public void clickSubmitButton() throws InterruptedException {
 
 		objLoginPage.clickOnSubmit();
+		Thread.sleep(2000);
 	}
 
 	@Step
@@ -56,5 +58,10 @@ public class LoginSteps extends ScenarioSteps {
 	public void closeBrowser(){
 		getDriver().quit();
 		
+	}
+	
+	public void clickLoginButton()
+	{
+		objLoginPage.clickLoginButton();
 	}
 }

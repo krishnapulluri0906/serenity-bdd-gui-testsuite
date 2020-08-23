@@ -22,14 +22,16 @@ public class LoginDefinitions {
 	}
 
 	@Then("user enters {string} and {string}")
-	public void user_enters_and(String username, String password) {
-		//objLoginSteps.enterLoginDetails(username, password);
+	public void user_enters_and(String username, String password) throws InterruptedException {
+		objLoginSteps.clickLoginButton();
+		Thread.sleep(2000);
+		objLoginSteps.enterLoginDetails(username, password);
 	  
 	}
 
 	@Then("user clicks on login button")
-	public void user_clicks_on_login_button() {
-		//objLoginSteps.clickSubmitButton();
+	public void user_clicks_on_login_button() throws InterruptedException {
+		objLoginSteps.clickSubmitButton();
 	}
 
 	@Then("user is on home page")

@@ -18,7 +18,7 @@ public class reusable  implements DriverSource{
 		String browserType = "";
 		WebDriver driver = null;
 		//System.out.println("Krishna path for driver" + System.getProperty("user.dir") + "/drivers/chromedriver.exe");
-		System.setProperty("webdriver.chrome.driver", "D:\\Tools\\chromedriver_win32_1\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "D:\\Tools\\chromedriver.exe");
 		//System.setProperty("webdriver.chrome.driver","driver path");
 		//ChromeOptions chrOptions = new ChromeOptions();
 		//chrOptions.setExperimentalOption("userAutomationExtension", false);

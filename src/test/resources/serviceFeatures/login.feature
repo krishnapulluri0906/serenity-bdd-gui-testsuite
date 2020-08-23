@@ -12,5 +12,5 @@ Feature: Free CRM application functional test cases
 
     Examples: 
       | username | password |
-      | naveenk  | test@123 |
+      | gedam.sonali@gmail.com  | Sonali@123 |
      # | tom      | test456  |
