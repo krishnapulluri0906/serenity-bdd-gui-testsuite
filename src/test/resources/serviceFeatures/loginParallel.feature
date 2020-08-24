@@ -1,7 +1,7 @@
 @testTagsToRunInParallel
 Feature: Free CRM application functional test cases
 
-@login
+@loginParallel
   Scenario Outline: Free CRM Login Test Scenario functional
     Given user is already on Login Page
     When title of login page is Free CRM
