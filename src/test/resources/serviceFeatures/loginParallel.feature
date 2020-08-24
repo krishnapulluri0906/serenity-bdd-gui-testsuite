@@ -1,5 +1,5 @@
 @testTagsToRunInParallel
-Feature: Free CRM application functional test cases
+Feature: Parallel execution Free CRM application functional test cases
 
 @loginParallel
   Scenario Outline: Free CRM Login Test Scenario functional
