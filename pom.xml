@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.cogn.starter</groupId>
@@ -17,7 +16,7 @@
 		<serenity.cucumber.version>2.2.5</serenity.cucumber.version>
 		<encoding>UTF-8</encoding>
 		<tags></tags>
-		<parallel.tests>4</parallel.tests>
+		<parallel.tests>2</parallel.tests>
 		<webdriver.base.url></webdriver.base.url>
 	</properties>
 
@@ -123,9 +122,8 @@
 						<include>**/*RunnerSuite.java</include>
 						<include>**/When*.java</include>
 					</includes>
-					<!-- <systemPropertyVariables>
-						<webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
-					</systemPropertyVariables> -->
+					<!-- <systemPropertyVariables> <webdriver.base.url>${webdriver.base.url}</webdriver.base.url> 
+						</systemPropertyVariables> -->
 					<!--<parallel>classes</parallel> <threadCount>${parallel.tests}</threadCount> 
 						<forkCount>${parallel.tests}</forkCount> -->
 				</configuration>
@@ -179,4 +177,45 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>parallelTests</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-failsafe-plugin</artifactId>
+						<version>3.0.0-M5</version>
+						<configuration>
+							<testFailureIgnore>true</testFailureIgnore>
+							<includes>
+								<include>**/*Test.java</include>
+								<include>**/Test*.java</include>
+								<include>**/*RunnerSuite.java</include>
+								<include>**/When*.java</include>
+							</includes>
+							<systemPropertyVariables>
+								<webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
+							</systemPropertyVariables>
+							<parallel>methods</parallel>
+							<threadCount>${parallel.tests}</threadCount>
+							<!-- <forkCount>${parallel.tests}</forkCount> -->
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>integration-test</goal>
+									<goal>verify</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+
+			</build>
+
+		</profile>
+	</profiles>
+
+
 </project>

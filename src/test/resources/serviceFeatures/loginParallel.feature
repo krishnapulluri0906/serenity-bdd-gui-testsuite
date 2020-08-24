@@ -2,7 +2,7 @@
 Feature: Free CRM application functional test cases
 
 @login
-  Scenario Outline: Free CRM Login Test Scenario
+  Scenario Outline: Free CRM Login Test Scenario functional
     Given user is already on Login Page
     When title of login page is Free CRM
     Then user enters "<username>" and "<password>"
