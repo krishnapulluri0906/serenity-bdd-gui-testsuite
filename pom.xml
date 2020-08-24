@@ -211,11 +211,7 @@
 						</executions>
 					</plugin>
 				</plugins>
-
 			</build>
-
 		</profile>
 	</profiles>
-
-
 </project>
