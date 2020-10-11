@@ -22,7 +22,7 @@ public class LoginPage extends PageObject{
 	@FindBy(xpath = "//div[text()='Login']")
 	protected WebElementFacade  btnSubmit;
 	
-	@FindBy(xpath="//a[text()='Log In']")
+	@FindBy(xpath="//span[text()='Log In']")
 	protected WebElementFacade btnLogin;
 	
 	public void clickOnSubmit()

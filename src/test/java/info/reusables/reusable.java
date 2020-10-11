@@ -1,12 +1,17 @@
 package info.reusables;
 
 import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import net.thucydides.core.webdriver.DriverSource;
 
 public class reusable  implements DriverSource{
@@ -17,16 +22,34 @@ public class reusable  implements DriverSource{
 		
 		String browserType = "";
 		WebDriver driver = null;
-		System.setProperty("webdriver.chrome.driver", "D:\\Tools\\chromedriver_win32_1\\chromedriver.exe");
-		driver = new ChromeDriver();
-		
-		/*switch(browserType)
-		{
-		
-		case "chrome":
-			System.setProperty("webdriver.chrome.driver","driver path");
-			driver = new ChromeDriver();
-		}*/
+		 String strExecutionPlatform = System.getProperty("executionPlatform").trim().toUpperCase();
+		//System.setProperty("webdriver.chrome.driver", "D:\\Tools\\chromedriver.exe");
+		 try {
+			 ChromeOptions chromeOptions;
+			URL testGridUrl = new URL("http://192.168.99.100:4444/wd/hub");
+			
+			switch(strExecutionPlatform)
+			{
+			case "LOCAL_CHROME": 
+				chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--no-sandbox");
+                chromeOptions.addArguments("--disable-dev-shm-usage");
+                chromeOptions.addArguments("start-maximized");
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver(chromeOptions);
+                break;
+			case "GRID_CHROME":
+				DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
+                chromeOptions = new ChromeOptions();
+                desiredCapabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+                driver = new RemoteWebDriver(testGridUrl, desiredCapabilities);
+                break;
+			}
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//driver = new ChromeDriver();
 		return driver;
 	}
 
