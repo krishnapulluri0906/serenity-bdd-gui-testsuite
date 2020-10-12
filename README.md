@@ -13,7 +13,7 @@ Below are the command to setup Docker on Windows machine.
 # Install Docker Images to create docker hub and run test on docker
 
 1. docker pull selenium/hub
-2. docker pull docker pull selenium/node-chrome
+2. docker pull selenium/node-chrome
 3. docker pull selenium/node-firefox
 4. docker run -d -p 4444:4444 –name selenium-hub selenium/hub
 5. docker run -d --link selenium-hub:hub selenium/node-chrome
