@@ -15,11 +15,10 @@ Below are the command to setup Docker on Windows machine.
 1. docker pull selenium/hub
 2. docker pull docker pull selenium/node-chrome
 3. docker pull selenium/node-firefox
-4. docker run -d -p 4444:4444 selenium/hub
-5. docker run -d -p 4444:4444 –name selenium-hub selenium/hub
-6. docker run -d --link selenium-hub:hub selenium/node-chrome
-7. docker run -d --link selenium-hub:hub selenium/node-firefox
-8. docker ps -a ( command is used to check all processes running on docker)
+4. docker run -d -p 4444:4444 –name selenium-hub selenium/hub
+5. docker run -d --link selenium-hub:hub selenium/node-chrome
+6. docker run -d --link selenium-hub:hub selenium/node-firefox
+7. docker ps -a ( command is used to check all processes running on docker)
 
 # Run Test suite on Docker and check docker hub is running or not
 
@@ -35,9 +34,11 @@ mvn verify -Dcucumber.options="--tags '@login'" -DexecutionPlatform="GRID_CHROME
 # Execute below commands on docker to setup zelenium grid
 1. docker pull dosel/zalenium
 2. docker pull elgalu/selenium
-3. docker stop <selenium/hub container id>
-4. docker rm <container_id> - remove containers from the list of processes
-5. docker run --rm -ti --name zalenium -p 4444:4444 -v /var/run/docker.sock:/var/run/docker.sock -v /d/zalenium/videos:/home/seluser/videos --privileged dosel/zalenium start
+3. docker run --rm -ti --name zalenium -p 4444:4444 -v /var/run/docker.sock:/var/run/docker.sock -v /d/zalenium/videos:/home/seluser/videos --privileged dosel/zalenium start
+
+Note - If any process is running on machine then you can kill the process and stop the container using below commands
+1. docker stop <selenium/hub container id>
+2. docker rm <container_id> - remove containers from the list of processes
 
 # Test zelenium grid running or not
 
