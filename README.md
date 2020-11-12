@@ -15,7 +15,7 @@ Below are the command to setup Docker on Windows machine.
 1. docker pull selenium/hub
 2. docker pull selenium/node-chrome
 3. docker pull selenium/node-firefox
-4. docker run -d -p 4444:4444 –name selenium-hub selenium/hub
+4. docker run -d -p 4444:4444 -–name selenium-hub selenium/hub
 5. docker run -d --link selenium-hub:hub selenium/node-chrome
 6. docker run -d --link selenium-hub:hub selenium/node-firefox
 7. docker ps -a ( command is used to check all processes running on docker)
